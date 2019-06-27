@@ -1,4 +1,4 @@
-torch==1.10
+torch==1.0
 torchvision
 Pillow
 zhconv==1.4.0 
