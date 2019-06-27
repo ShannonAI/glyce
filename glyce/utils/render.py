@@ -20,7 +20,7 @@ from PIL import ImageFont
 from zhconv import convert
 
 
-default_font_size = 24
+default_font_size = 12
 default_font_path = os.path.join(root_path, "glyce/fonts")
 default_font_name = 'CJK/NotoSansCJKsc-Regular.otf'
 default_font = ImageFont.truetype(os.path.join(default_font_path, default_font_name), default_font_size)

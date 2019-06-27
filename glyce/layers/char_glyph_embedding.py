@@ -17,7 +17,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-import GlyphGroupCNN
+from glyce.glyph_cnn_models.glyph_group_cnn import GlyphGroupCNN
 from glyce.utils.random_erasing import RandomErasing
 from glyce.layers.mask_cross_entropy import MaskCrossEntropy
 from glyce.utils.components import SubCharComponent, Highway

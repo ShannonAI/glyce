@@ -28,7 +28,7 @@ from pypinyin import pinyin
 from pywubi import wubi
 
 
-data_path = '/data/ctb_v6/data/utf8/raw/'
+data_path = os.path.join(root_path, "glyce", "fonts")
 with open(os.path.join(data_path, 'dictionary.json')) as fo:
     dict_word = json.load(fo)
 with open(os.path.join(data_path, 'pinyin_vocab.json')) as fo:

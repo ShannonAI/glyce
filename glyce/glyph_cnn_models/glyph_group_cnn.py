@@ -48,7 +48,7 @@ def gelu(x):
 class GlyphGroupCNN(nn.Module):     #55000
     def __init__(self, cnn_type='simple', kernel_size=5, font_channels=1, shuffle=False, ntokens=4000,
                  num_features=8*12*4, final_width=2, cnn_drop=0.5, groups=16):
-        super(Yuxian8, self).__init__()
+        super(GlyphGroupCNN, self).__init__()
         self.aux_logits=False
         self.cnn_type = cnn_type
         output_channels = num_features

@@ -25,7 +25,7 @@ setup(name='glyce',
       install_requires=[
           'torch',
           'torchvision',
-          "PIL",
+          'Pillow',
           'zhconv==1.4.0',
           'pypinyin==0.34.1',
           'pywubi==0.0.2',

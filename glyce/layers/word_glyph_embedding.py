@@ -18,7 +18,7 @@ import torch.nn.functional as F
 import random 
 
 
-import GlyphGroupCNN
+from glyce.glyph_cnn_models.glyph_group_cnn import GlyphGroupCNN
 from glyce.utils.random_erasing import RandomErasing
 from glyce.glyph_cnn_models.word_encoder import Encoder 
 from glyce.utils.components import SubCharComponent, Highway
