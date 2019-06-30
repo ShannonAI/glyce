@@ -38,14 +38,16 @@
     - [Chinese Dependency Parsing](#5.-Chinese-Dependency-Parsing)
 - [Requirements](#Requirements)
 - [Installation](#Installation) 
-- [Hyperparameter Sets](#Hyperparameter-Sets)
 - [Quick Start of Glyce](#Quick-Start-of-Glyce)
     - [Usage of Glyce Char/Word Embedding](#Usage-of-Glyce-Char/Word-Embedding)
     - [Usage of Glyce-BERT](#Usage-of-Glyce-BERT)
+- [Folder Description](#Folder Description)
+- [Hyperparameter Sets](#Hyperparameter-Sets)
 - [Implementation](#Implementation)
 - [Download Task Data](#Download-Task-Data)
-- [Welcome to Futher Develop Glyce Open-Source Project](#Welcome-to-Further-Develop-Glyce-Open-Source-Porject)
-- [Acknowledgement](#Ackowledgement)
+- [Welcome Contributions to Glyce Open Source Project](#Welcome-Contributions-to-Glyce-Open-Source-Project )
+- [Acknowledgement](#Ackowledgement) 
+- [Contact](#Contact)
 
 
 
@@ -71,7 +73,7 @@ We combine Glyce with Pre-trained Chinese BERT model and adopt specific layer to
 We propose the Tianzige-CNN(田字格) structure, which is tailored to Chinese character modeling. Tianzige-CNN(田字格) tackle the issue of small number of Chinese characters and small sacle of image compared to Imagenet. 
 
 
-#### 4. Auxiliary Task Performs Like a Regularizer
+#### 4. Auxiliary Task Performs As a Regularizer
 During training process, image-classification loss performs as an auxiliary training objective with the purpose of preventing overfitting and promiting the model's ability to generalize. 
 
 
@@ -255,7 +257,7 @@ Biaffine+Glyce-word | 90.2 | 89.0
 
 - Python Version >= 3.6 
 - GPU, Use NVIDIA TITAN Xp with 12G RAM  
-- Chinese scripts could be found in [Google Drive](https://drive.google.com/file/d/13rqDtwNQ36F0UckemLmoW1mr3KUOT-Yg/view?usp=sharing). Please download and unpack to directory `glyce/glyce/fonts/`. 
+- Chinese scripts could be found in [Google Drive](https://drive.google.com/file/d/1TxY_Z_SdvIW-7BnXmjDE3gpfpVEzu22_/view?usp=sharing). Please refer to the [description](./glyce/fonts/README.md) and download scripts files to `glyce/glyce/fonts/`. 
 
 
 **NOTE**: Some experimental results are obtained by training on multi-GPU machines. May use DIFFERENT PyTorch versions refer to previous open-source SOTA models. Experiment environment for Glyce-BERT is Python 3.6 and PyTorch 1.10.
@@ -272,8 +274,6 @@ python3.6 setup.py develop
 # Install package dependency 
 pip install -r requirements.txt
 ```
-
-## Hyperparameter Sets
 
 
 ## Quick start of Glyce 
@@ -396,6 +396,12 @@ Notes:
 - `data_dir` and `output_dir` refer to the directories of the "raw data" and "intermediate checkpoints" respectively. 
 
 
+## Folder Description
+
+
+## Hyperparameter Sets
+
+
 ## Implementation 
 
 Glyce toolkit provides implementations of previous SOTA models incorporated with Glyce embeddings. 
@@ -421,7 +427,7 @@ Refer to [./glyce/models/biaffine](./glyce/models/biaffine)
 [Download Task Data](./docs/dataset_download.md)
 
 
-## Welcome to Further Develop Glyce Open-Source Project 
+## Welcome Contributions to Glyce Open Source Project 
 
 We actively welcome researchers and practitioners to contribute to Glyce open source project. Please read this [Guide](https://help.github.com/en/articles/creating-a-pull-request) and submit your **Pull Request**.
 
@@ -429,6 +435,12 @@ We actively welcome researchers and practitioners to contribute to Glyce open so
 ## Acknowledgement      
 
 Vanilla Glyce is developed based on the previous SOTA model. Glyce-BERT is developed based on [PyTorch implementation by HuggingFace](https://github.com/huggingface/pytorch-pretrained-BERT). And pretrained BERT model is released by [Google's pre-trained models](https://github.com/google-research/bert). [Acknowledgement](./docs/acknowledge.md)
+
+
+## Contact 
+
+Please feel free to discuss paper/code through issues or emails.
+glyce_community@outlook.com
 
 
 ### License 
