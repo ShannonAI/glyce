@@ -41,7 +41,7 @@
 - [Quick Start of Glyce](#Quick-Start-of-Glyce)
     - [Usage of Glyce Char/Word Embedding](#Usage-of-Glyce-Char/Word-Embedding)
     - [Usage of Glyce-BERT](#Usage-of-Glyce-BERT)
-- [Folder Description](#Folder Description)
+- [Folder Description](#Folder-Description)
 - [Hyperparameter Sets](#Hyperparameter-Sets)
 - [Implementation](#Implementation)
 - [Download Task Data](#Download-Task-Data)
