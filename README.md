@@ -443,5 +443,11 @@ Please feel free to discuss paper/code through issues or emails.
 glyce_community@outlook.com
 
 
+## Contact 
+
+Please feel free to discuss paper/code through issues or emails.
+glyce_community@outlook.com
+
+
 ### License 
 [Apache License 2.0](./LICENSE)
