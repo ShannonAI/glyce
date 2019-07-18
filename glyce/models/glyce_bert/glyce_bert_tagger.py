@@ -27,7 +27,7 @@ from torch.nn import CrossEntropyLoss
 
 from glyce.layers.classifier import * 
 from glyce.layers.bert_basic_model import * 
-from glyce.layers.glyce_transformer import GlyphTransformer 
+from glyce.layers.glyce_transformer import GlyceTransformer 
 
 
 

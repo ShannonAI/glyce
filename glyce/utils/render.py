@@ -22,11 +22,11 @@ from zhconv import convert
 
 default_font_size = 12
 default_font_path = os.path.join(root_path, "glyce/fonts")
-default_font_name = 'CJK/NotoSansCJKsc-Regular.otf'
+default_font_name = 'cjk/NotoSansCJKsc-Regular.otf'
 default_font = ImageFont.truetype(os.path.join(default_font_path, default_font_name), default_font_size)
-font_list = ['金文/HanYiShouJinShuFan-1.ttf', 'CJK/NotoSansCJKsc-Regular.otf', '篆书/方正小篆体.ttf', 
-             '魏碑/WenDingHuangYangJianWeiTi-2.ttf', '楷书/STKAITI.TTF', '草书/行草字体.ttf', '隶书/STLITI.TTF',
-             'CJK/STFANGSO.TTF', '隶书/方正古隶繁体.ttf', '楷书/STXINGKA.TTF']
+font_list = ['bronzeware_script/HanYiShouJinShuFan-1.ttf', 'cjk/NotoSansCJKsc-Regular.otf', 'seal_script/方正小篆体.ttf', 
+             'tablet_script/WenDingHuangYangJianWeiTi-2.ttf', 'regular_script/STKAITI.TTF', 'cursive_script/行草字体.ttf', 'clerical_script/STLITI.TTF',
+             'cjk/STFANGSO.TTF', 'clerical_script/方正古隶繁体.ttf', 'regular_script/STXINGKA.TTF']
 
 
 

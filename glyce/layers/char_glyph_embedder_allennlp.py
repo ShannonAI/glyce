@@ -44,7 +44,7 @@ from allennlp.modules.token_embedders.token_embedder import TokenEmbedder
 
 
 from glyce import CharGlyceEmbedding 
-from glyce import DefaultGlyceConfig 
+from glyce import GlyceConfig 
 
 
 with warnings.catch_warnings():
@@ -113,7 +113,7 @@ class GlyphCharEmbedding(TokenEmbedder):
         # pylint: disable=arguments-differ
         vocab_namespace = params.pop("vocab_namespace", "tokens")
         embedding_dim = params.pop_int('embedding_dim')
-        config = GlyphEmbeddingConfig.from_dict(params.pop('config'))
+        config = GlyceConfig.from_dict(params.pop('config'))
         params.assert_empty(cls.__name__)
         print(vocab._index_to_token.keys())
         config.idx2char = vocab._index_to_token["tokens"]
