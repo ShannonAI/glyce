@@ -442,13 +442,6 @@ We actively welcome researchers and practitioners to contribute to Glyce open so
 ## Contact 
 
 Please feel free to discuss paper/code through issues or emails.
-glyce_community@outlook.com
-
-
-## Contact 
-
-Please feel free to discuss paper/code through issues or emails.
-glyce_community@outlook.com
 
 
 ### License 
