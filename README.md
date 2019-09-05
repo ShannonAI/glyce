@@ -7,9 +7,11 @@
 
 ## Citation 
 
+To appear in NeurIPS 2019. 
+
 [Glyce: Glyph-vectors for Chinese Character Representations](https://arxiv.org/abs/1901.10125)
 
-(Yuxian Meng, Wei Wu, Fei Wang, Xiaoya Li, Ping Nie, Fan Yin, Muyu Li, Qinghong Han, Xiaofei Sun and Jiwei Li, 2019)
+(Yuxian Meng*, Wei Wu*, Fei Wang*, Xiaoya Li*, Ping Nie, Fan Yin, Muyu Li, Qinghong Han, Xiaofei Sun and Jiwei Li, 2019)
 
 ```
 
