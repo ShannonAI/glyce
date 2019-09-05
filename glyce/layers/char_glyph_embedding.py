@@ -53,10 +53,12 @@ class CharGlyphEmbedding(nn.Module):
 
     """
 
-    def __init__(self, model_config):
+    def __init__(self, model_config, idx2char=None):
         super(CharGlyphEmbedding, self).__init__()
         self.config = model_config
         all_fonts = get_font_names()
+        if idx2char is not None:
+            self.config.idx2char = idx2char
         self.drop = nn.Dropout(self.config.dropout)
 
         if self.config.char_embsize:
