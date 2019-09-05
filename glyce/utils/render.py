@@ -108,8 +108,6 @@ if __name__ == '__main__':
         idx2word = json.load(fo)['idx2word']
     for folder in os.listdir(default_font_path):
         for font_name in os.listdir(os.path.join(default_font_path, folder)):
-            # if folder == '篆书' and font_name == 'FuHanTongXiYinZhuanTiFan-1.ttf':
-                print(folder, font_name)
                 font = ImageFont.truetype(os.path.join(default_font_path, folder, font_name), default_font_size)
                 emb = vocab_glyph_embedding(os.path.join(default_font_path, folder, font_name), 24)
                 assert emb.shape == (4401, 25, 25)
@@ -119,12 +117,6 @@ if __name__ == '__main__':
                 cnt = 0
                 for idx in range(len(idx2word)):
                     feat = render_text_with_token_id(idx, font, False)
-                    # print(idx, idx2word[idx], feat.shape)
-                    # if idx2word[idx] == '今':
-                    #     ascii_print(feat)
-                    #     print(feat)
-                    #     with open('useless_font3.json', 'w') as fo:
-                    #         json.dump(feat.tolist(), fo)
                     if feat.tolist() in [useless, useless2, useless3]:
                         print('useless')
                         cnt += 1

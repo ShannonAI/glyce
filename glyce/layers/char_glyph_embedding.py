@@ -48,7 +48,6 @@ class CharGlyphEmbedding(nn.Module):
     use_batch_norm: bool, 是否使用batch normalization
     use_layer_norm: bool, 是否使用layer normalization
     use_highway: bool, 是否将concat之后的向量过highway
-    yuxian_merge: bool, 是否将concat之后的向量过yuxian_merge
     fc_merge: bool, 是否将concat之后的向量过全连接
     output_size: bool, 输出向量的维度
 
@@ -88,7 +87,6 @@ class CharGlyphEmbedding(nn.Module):
             assert self.token_size == self.config.output_size, '没有用后处理，token_size {}应该等于output_size {}'.format(self.token_size, self.config.output_size)
 
         if self.config.num_fonts_concat:
-            # self.glyph_cnn_model = getattr(glyph_cnn_models, self.config.glyph_cnn_type)(
             self.glyph_cnn_model = GlyphGroupCNN(
                 num_features=self.config.glyph_embsize, cnn_drop=self.config.cnn_dropout,
                 font_channels=self.config.random_fonts or self.config.font_channels, groups=self.config.glyph_groups)
