@@ -35,7 +35,7 @@ from torch.nn import CrossEntropyLoss
 
 from glyce.layers.bert_basic_model import * 
 from glyce.utils.tokenization import BertTokenizer  
-from glyce.glyph_embedding.models.glyph_char import CharGlyphEmbedding
+from glyce.layers.char_glyph_embedding import CharGlyphEmbedding
 
 
 

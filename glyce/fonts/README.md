@@ -1,6 +1,6 @@
 ## Directory Description
 
-`fonts` directory contains Chinese scripts and writing styles in Glyce.
+`fonts` contains Chinese scripts and writing styles files used in Glyce.
 
 Chinese | English | Time Period
 ----------- | ------------- | ------------------------------

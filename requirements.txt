@@ -6,8 +6,7 @@ pypinyin==0.34.1
 pywubi==0.0.2 
 scikit-learn==0.19.1 
 boto3
-numpy 
-logging 
+numpy
 requests 
 tqdm 
 pathlib  

@@ -6,7 +6,7 @@
 repo_path=/home/ubuntu/glyce/glyce
 data_sign=bq
 data_dir=/data/bq
-output_dir=/home/ubuntu/train_logs/models/bq_1 # change save_path !!!
+output_dir=/home/ubuntu/train_logs/models/bq # change save_path !!!
 
 
 config_path=/home/ubuntu/glyce/configs/bert.json

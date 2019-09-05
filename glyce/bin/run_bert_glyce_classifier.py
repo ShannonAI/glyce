@@ -28,7 +28,7 @@ from glyce.utils.tokenization import BertTokenizer
 from glyce.utils.optimization import BertAdam
 from glyce.dataset_readers.bert_config import Config 
 from glyce.dataset_readers.bert_sent_pair import * 
-from glyce.models.glyce_bert.glyce_bert_classifier import GlyphBertClassifier 
+from glyce.models.glyce_bert.glyce_bert_classifier import GlyceBertClassifier 
 from glyce.dataset_readers.bert_data_utils import convert_examples_to_features 
 from glyce.utils.metrics.cls_evaluate_funcs import acc_and_f1 
 
@@ -159,7 +159,7 @@ def load_model(config, num_train_steps, label_list):
     device = torch.device("cuda")
     n_gpu = torch.cuda.device_count()
 
-    model = GlyphBertClassifier(config, num_labels=len(label_list))
+    model = GlyceBertClassifier(config, num_labels=len(label_list))
 
     model.to(device)
     if n_gpu > 1:
