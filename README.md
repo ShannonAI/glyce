@@ -44,7 +44,6 @@ To appear in NeurIPS 2019.
     - [Usage of Glyce Char/Word Embedding](#Usage-of-Glyce-Char/Word-Embedding)
     - [Usage of Glyce-BERT](#Usage-of-Glyce-BERT)
 - [Folder Description](#Folder-Description)
-- [Hyperparameter Sets](#Hyperparameter-Sets)
 - [Implementation](#Implementation)
 - [Download Task Data](#Download-Task-Data)
 - [Welcome Contributions to Glyce Open Source Project](#Welcome-Contributions-to-Glyce-Open-Source-Project )
@@ -399,10 +398,6 @@ Notes:
 
 
 ## Folder Description
-
-
-## Hyperparameter Sets
-
 
 ## Implementation 
 
