@@ -2,18 +2,18 @@
 # -*- coding: utf-8 -*-
 
 
-repo_path=/home/ubuntu/bert_glyce
+repo_path=/home/ubuntu/glyce
 
 
 
 data_sign=nlpcc-dbqa
 data_dir=/data/nfsdata/nlp/datasets/sentence_pair/nlpcc-dbqa
 
-config_path=/home/mengyuxian/bert_glyce/configs/glyph_bert.json
+config_path=/glyce/configs/glyph_bert.json
 
-bert_model=/data/nfsdata/data/yuxian/train_logs/dbqa_best_bert
+bert_model=/data/nfsdata/data/train_logs/dbqa_best_bert
 task_name=clf
-output_dir=/data/nfsdata/data/yuxian/train_logs/xiaoya_dbqa_together_lr4e-6_warmup0.2
+output_dir=/data/nfsdata/data/train_ilogs/dbqa_together_lr4e-6_warmup0.2
 max_seq_len=128
 train_batch=32
 dev_batch=64
@@ -26,7 +26,7 @@ seed=3306
 checkpoint=1000
 
 
-CUDA_VISIBLE_DEVICES=1  python3 ${repo_path}/run/run_glyph_classifier.py \
+CUDA_VISIBLE_DEVICES=1 python3 ${repo_path}/bin/run_bert_glyce_classifier.py \
 --data_sign ${data_sign} \
 --config_path ${config_path} \
 --data_dir ${data_dir} \

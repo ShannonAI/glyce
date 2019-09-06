@@ -25,7 +25,7 @@ gpus=2-3-0
 
 
 
-python3 ${repo_path}/run/run_glyph_text_classification.py \
+python3 ${repo_path}/bin/run_bert_glyce_classifier.py \
 --data_sign ${data_sign} \
 --config_path ${config_path} \
 --data_dir ${data_dir} \
@@ -41,23 +41,4 @@ python3 ${repo_path}/run/run_glyph_text_classification.py \
 --num_train_epochs ${num_train_epochs} \
 --checkpoint ${checkpoint} \
 --warmup_proportion ${warmup} \
---output_dir ${output_dir} \
---gpus ${gpus} \
---glyph_decay ${glyph_decay} \
---glyph_ratio ${glyph_ratio} \
---glyph_output_size ${glyph_output_size} \
---num_fonts_concat ${num_fonts_concat} \
---font_channels ${font_channels} \
---cnn_dropout ${cnn_dropout} \
---glyph_hidden_dropout_prob ${glyph_hidden_dropout_prob} \
---glyph_embsize ${glyph_embsize} \
---glyph_dropout ${glyph_dropout} \
---fc_merge ${fc_merge} \
---bert_frozen ${bert_frozen} \
---bert_hidden_dropout ${bert_hidden_dropout} \
---transformer_hidden_dropout_prob ${transformer_hidden_dropout_prob} \
---transformer_feedforward_dropout ${transformer_feedforward_dropout} \
---transformer_attention_probs_dropout_prob ${transformer_attention_probs_dropout_prob} \
---gradient_accumulation_steps ${gradient_accumulation_steps}
-
-
+--output_dir ${output_dir} 

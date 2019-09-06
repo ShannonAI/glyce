@@ -74,7 +74,7 @@ def args_parser():
     parser.add_argument("--nworkers", type=int, default=1)
     parser.add_argument("--step", type=int, default=1)
     parser.add_argument("--export_model", type=bool, default=True)
-    parser.add_argument("--output_dir", type=str, default="/data/nfsdata/data/yuxian/train_logs")
+    parser.add_argument("--output_dir", type=str, default="/data/nfsdata/data/train_logs")
     parser.add_argument("--data_sign", type=str, default="nlpcc-dbqa")
     # classifier_sign == "single_linear
     parser.add_argument("--classifier_sign", type=str, default="single_linear")
