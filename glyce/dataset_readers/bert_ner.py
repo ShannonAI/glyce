@@ -31,7 +31,7 @@ import random
 import numpy as np 
 from tqdm import tqdm 
 
-from glyce.data.data_utils import * 
+from glyce.dataset_readers.bert_data_utils import * 
 
 
 
