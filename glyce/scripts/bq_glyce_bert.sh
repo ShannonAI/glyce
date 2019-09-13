@@ -21,7 +21,7 @@ seed=3306
 checkpoint=500
 
 
-python3 ${repo_path}/run/run_glyph_text_classification.py \
+python3 ${repo_path}/bin/run_bert_glyce_classifier.py \
 --data_sign ${data_sign} \
 --config_path ${config_path} \
 --data_dir ${data_dir} \

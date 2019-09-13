@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-repo_path=/home/mengyuxian/bert_glyce
+repo_path=/home/glyce
 
 
 
