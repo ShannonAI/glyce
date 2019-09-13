@@ -32,7 +32,7 @@ from glyce.layers.glyce_transformer import GlyceTransformer
 
 class GlyceBertClassifier(nn.Module):
     def __init__(self, config, num_labels=2):
-        super(GlyphBertClassifier, self).__init__()
+        super(GlyceBertClassifier, self).__init__()
         self.num_labels = num_labels 
         self.glyph_transformer = GlyphTransformer(config, num_labels=num_labels)
         # config involves here 
