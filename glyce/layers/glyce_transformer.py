@@ -41,7 +41,7 @@ from glyce.layers.glyph_position_embed import GlyphPositionEmbedder
 
 class GlyceTransformer(nn.Module):
     def __init__(self, config, num_labels=4):
-        super(GlyphTransformer, self).__init__()
+        super(GlyceTransformer, self).__init__()
         self.num_labels = num_labels
         self.glyph_embedder = GlyphPositionEmbedder(config.glyph_config)
         bert_config = BertConfig.from_dict(config.bert_config.to_dict())
