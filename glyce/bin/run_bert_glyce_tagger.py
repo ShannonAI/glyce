@@ -238,7 +238,7 @@ def train(model, optimizer, train_dataloader, dev_dataloader, test_dataloader, c
             loss, glyph_loss = model(input_ids, segment_ids, input_mask, label_ids)
             if n_gpu > 1:
                 loss = loss.mean()
-                glyph_loss = loss.mean() 
+                glyph_loss = glyph_loss.mean() 
 
             if global_step < config.glyph_warmup:
                 sum_loss = loss + config.glyph_ratio * glyph_loss 
