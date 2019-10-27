@@ -14,7 +14,7 @@
 
 
 ### Chinese Part-of-Speech 
-* [CTB5, CTB6, CTB9, UD1](https://drive.google.com/open?id=1297z7s9QDNL9i_9gLXsu9UnpC8X0e63b)
+* [CTB5, CTB6, CTB9, UD1](https://drive.google.com/file/d/1297z7s9QDNL9i_9gLXsu9UnpC8X0e63b/view?usp=sharing)
 
 
 ### Chinese Dependency Parsing 
