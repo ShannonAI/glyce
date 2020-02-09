@@ -19,7 +19,6 @@ warmup=0.1
 local_rank=-1
 seed=3306
 checkpoint=10000
-gpus=12-13-14
 
 
 python3 ${repo_path}/run/run_text_classification.py \

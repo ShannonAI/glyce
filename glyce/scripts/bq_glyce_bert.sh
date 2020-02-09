@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-repo_path=/home/ubuntu/glyce/glyce
+repo_path=/data/xiaoya/work/gitrepo/glyce/glyce
 
 data_sign=bq
-data_dir=/data/bq
-output_dir=/home/ubuntu/nieping/train_logs/models/  # change save_path !!!
+data_dir=/data/nfsdata/nlp/datasets/sentence_pair/bq_corpus
+output_dir=/data/xiaoya/export-models  # change save_path !!!
 
-config_path=/home/ubuntu/glyce/glyce/configs/bq_glyce_bert.json
-bert_model=/home/ubuntu/train_logs/models/bq
+config_path=/data/xiaoya/work/gitrepo/glyce/glyce/configs/bq_glyce_bert.json
+bert_model=/data/nfsdata/nlp/BERT_BASE_DIR/chinese_L-12_H-768_A-12
 
 task_name=clf
 max_seq_len=64
@@ -18,10 +18,10 @@ num_train_epochs=4
 warmup=0.1
 local_rank=-1
 seed=3306
-checkpoint=500
+checkpoint=100
 
 
-python3 ${repo_path}/bin/run_bert_glyce_classifier.py \
+CUDA_VISIBLE_DEVICES=0 python3 ${repo_path}/bin/run_bert_glyce_classifier.py \
 --data_sign ${data_sign} \
 --config_path ${config_path} \
 --data_dir ${data_dir} \
