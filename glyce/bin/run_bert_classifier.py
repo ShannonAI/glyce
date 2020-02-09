@@ -19,18 +19,32 @@ print(root_path)
 if root_path not in sys.path:
     sys.path.insert(0, root_path)
 
+import random
+import logging
+import argparse
+import numpy as np
+from tqdm import tqdm
+
+
+
 import torch
+import torch.nn as nn
+from torch.utils.data.distributed import DistributedSampler
+from torch.utils.data import TensorDataset, DataLoader, RandomSampler, \
+SequentialSampler
+
+
 
 
 from glyce.utils.tokenization import BertTokenizer
 from glyce.utils.optimization import BertAdam 
 from glyce.dataset_readers.bert_config import Config 
-from glyce.dataset_readers.bert_sent_pair import * 
 from glyce.models.bert.bert_classifier import BertClassifier 
-from glyce.utils.metrics.cls_evaluate_funcs import acc_and_f1 
+from glyce.utils.metrics.cls_evaluate_funcs import  acc, f1_measures
 from glyce.dataset_readers.bert_data_utils import convert_examples_to_features 
-
-
+from glyce.dataset_readers.bert_single_sent import ChinaNewsProcessor, DianPingProcessor, JDFullProcessor, JDBinaryProcessor, FuDanProcessor, ChnSentiCorpProcessor, ifengProcessor
+from glyce.dataset_readers.bert_sent_pair import DBQAProcessor, LCQMCProcessor, BQProcessor, XNLIProcessor
+from sklearn.metrics import precision_recall_fscore_support, accuracy_score
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -94,7 +108,17 @@ def load_data(config):
     # load some data and processor
     # data_processor = MsraNerProcessor()
     if config.data_sign == "nlpcc-dbqa":
-        data_processor = TextProcessor()
+        data_processor = DBQAProcessor()
+    elif config.data_sign == "bq":
+        data_processor = BQProcessor()
+    elif config.data_sign == "xnli":
+        data_processor = XNLIProcessor()
+    elif config.data_sign == "lcqmc":
+        data_processor = LCQMCProcessor()
+    elif config.data_sign == "fudan":
+        data_processor = FuDanProcessor()
+    elif config.data_sign == "chinanews":
+        data_processor = ChinaNewsProcessor()
     else:
         raise ValueError
 
@@ -293,6 +317,8 @@ def eval_checkpoint(model_object, eval_dataloader, config, \
     eval_f1 = []
     eval_recall = []
     eval_precision = []
+    logits_all = []
+    labels_all = []
     eval_steps = 0
 
     for input_ids, input_mask, segment_ids, label_ids in tqdm(eval_dataloader):
@@ -306,45 +332,24 @@ def eval_checkpoint(model_object, eval_dataloader, config, \
             logits = model_object(input_ids, segment_ids, input_mask)
 
         logits = logits.detach().cpu().numpy()
-        # logits = np.argmax(logits, axis=-1)
         label_ids = label_ids.to("cpu").numpy()
         input_mask = input_mask.to("cpu").numpy()
-        # reshape_lst = label_ids.shape
-        # logits = np.reshape(logits, (reshape_lst[0], reshape_lst[1], -1))
         logits = np.argmax(logits, axis=-1)
 
-        # logits = logits.tolist()
-        # logits = [[idx2label[tmp] for tmp in logit_item] for logit_item in logits]
-        # label_ids = label_ids.tolist()
         input_mask = input_mask.tolist()
-        # label_ids = [[idx2label[tmp] for tmp in label_item] for label_item in label_ids]
 
-        # print("check the format and content of labels and logtis")
-        # print(logits)
-        # print(label_ids)
-        # exit()
-        # tmp_accuracy = cal_accuracy(logits, label_ids, label_list)
-        # eval_accuracy.append(tmp_accuracy)
 
         eval_loss += tmp_eval_loss.mean().item()
-
-        # tmp_precision, tmp_recall, tmp_f1 = cal_ner_f1(logits, label_ids, label_list)
-        metric = acc_and_f1(preds=logits, labels=label_ids)
-
-        # print("check the labels and output")
-        # print(logits[0])
-        # print(label_ids[0])
-        eval_accuracy.append(metric['acc'])
-        # eval_precision.append(tmp_precision)
-        # eval_recall.append(tmp_recall)
-        eval_f1.append(metric['f1'])
+        logits_all.extend(logits.tolist())
+        labels_all.extend(label_ids.tolist())
         eval_steps += 1
 
     average_loss = round(eval_loss / eval_steps, 4)
-    eval_f1 = round(sum(eval_f1) / (len(eval_f1)), 4)
-    # eval_precision = round(sum(eval_precision) / len(eval_precision), 4)
-    # eval_recall = round(sum(eval_recall) / len(eval_recall), 4)
-    eval_accuracy = round(sum(eval_accuracy) / len(eval_accuracy), 4)
+    eval_accuracy = float(accuracy_score(y_true=labels_all, y_pred=logits_all))
+    matric = f1_measures(preds=logits_all, labels=labels_all)
+    eval_f1 = float(matric["f1"])
+    eval_recall = float(matric["recall"])
+    eval_precision = float(matric["precision"])
 
     return average_loss, eval_accuracy, eval_f1  # eval_precision, eval_recall, eval_f1
 

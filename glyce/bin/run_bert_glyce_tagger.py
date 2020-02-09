@@ -36,14 +36,14 @@ from tqdm import tqdm
 from glyce.utils.tokenization import BertTokenizer 
 from glyce.utils.optimization import BertAdam, warmup_linear 
 from glyce.utils.file_utils import PYTORCH_PRETRAINED_BERT_CACHE 
-from glyce.dataset_reader.bert_config import Config 
+from glyce.dataset_readers.bert_config import Config 
 from glyce.dataset_readers.bert_ner import * 
 from glyce.dataset_readers.bert_pos import * 
 from glyce.dataset_readers.bert_cws import * 
 from glyce.models.bert.bert_tagger import BertTagger 
 from glyce.dataset_readers.bert_data_utils import convert_examples_to_features 
 from glyce.utils.metrics.tagging_evaluate_funcs import compute_performance 
-
+from glyce.models.glyce_bert.glyce_bert_tagger import GlyceBertTagger
 
 
 logging.basicConfig()
@@ -141,7 +141,7 @@ def load_data(config):
     test_examples = data_processor.get_test_examples(config.data_dir)
 
     # convert data example into featrues 
-    train_features = convert_examples_to_features(train_examples, label_list, config.max_seq_length, tokenizer)
+    train_features = convert_examples_to_features(train_examples, label_list, config.max_seq_length, tokenizer, task_sign=config.task_name)
     train_input_ids = torch.tensor([f.input_ids for f in train_features], dtype=torch.long)
     train_input_mask = torch.tensor([f.input_mask for f in train_features], dtype=torch.long)
     train_segment_ids = torch.tensor([f.segment_ids for f in train_features], dtype=torch.long)
@@ -150,7 +150,7 @@ def load_data(config):
     # train_sampler = DistributedSampler(train_data)
     train_sampler = RandomSampler(train_data)
 
-    dev_features = convert_examples_to_features(dev_examples, label_list, config.max_seq_length, tokenizer)
+    dev_features = convert_examples_to_features(dev_examples, label_list, config.max_seq_length, tokenizer, task_sign=config.task_name)
     dev_input_ids = torch.tensor([f.input_ids for f in dev_features], dtype=torch.long)
     dev_input_mask = torch.tensor([f.input_mask for f in dev_features], dtype=torch.long)
     dev_segment_ids = torch.tensor([f.segment_ids for f in dev_features], dtype=torch.long)
@@ -159,7 +159,7 @@ def load_data(config):
     
     dev_sampler = RandomSampler(dev_data)
 
-    test_features = convert_examples_to_features(test_examples, label_list, config.max_seq_length, tokenizer)
+    test_features = convert_examples_to_features(test_examples, label_list, config.max_seq_length, tokenizer, task_sign=config.task_name)
     test_input_ids = torch.tensor([f.input_ids for f in test_features], dtype=torch.long)
     test_input_mask = torch.tensor([f.input_mask for f in test_features], dtype=torch.long)
     test_segment_ids = torch.tensor([f.segment_ids for f in test_features], dtype=torch.long)
@@ -185,7 +185,7 @@ def load_model(config, num_train_steps, label_list):
     # device = torch.device(torch.cuda.is_available())
     device = torch.device("cuda") 
     n_gpu = torch.cuda.device_count()
-    model = GlyphBertTagger(config, num_labels=len(label_list)) 
+    model = GlyceBertTagger(config, num_labels=len(label_list)) 
     # model = BertTagger(config, num_labels=13) 
     model.to(device)
     if n_gpu > 1:

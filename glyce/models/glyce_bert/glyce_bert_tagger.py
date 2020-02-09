@@ -36,7 +36,7 @@ class GlyceBertTagger(nn.Module):
     def __init__(self, config, num_labels=4):
         super(GlyceBertTagger, self).__init__()
         self.num_labels = num_labels 
-        self.glyph_transformer = GlyphTransformer(config, num_labels=num_labels)
+        self.glyph_transformer = GlyceTransformer(config, num_labels=num_labels)
         # config involves here 
         # 1. config.glyph_config 
         # 2. config.bert_config 

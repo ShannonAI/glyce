@@ -77,8 +77,10 @@ class DataProcessor(object):
         with open(input_file, "r") as f:
             reader = csv.reader(f, delimiter="\t", quotechar=quotechar)
             lines = []
-            for line in reader:
-                lines.append(line)
+            #for line in reader:
+            lines.extend(reader)
+            # print(reader[0])
+            #exit()
             return lines
 
     @classmethod

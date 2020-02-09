@@ -37,7 +37,7 @@ def simple_accuracy(preds, labels):
 
 def acc_and_f1(preds, labels):
     acc = simple_accuracy(preds, labels)
-    f1 = f1_score(y_true=labels, y_pred=preds)
+    f1 = f1_score(y_true=labels, y_pred=preds, average="micro")
     return {
         "acc": acc,
         "f1": f1,
@@ -47,9 +47,9 @@ def acc_and_f1(preds, labels):
 
 
 def f1_measures(preds, labels):
-    f1 = f1_score(y_true=labels, y_pred=preds)
-    recall = recall_score(y_true=labels, y_pred=preds)
-    precision = precision_score(y_true=labels, y_pred=preds)
+    f1 = f1_score(y_true=labels, y_pred=preds,  average="micro")
+    recall = recall_score(y_true=labels, y_pred=preds,  average="micro")
+    precision = precision_score(y_true=labels, y_pred=preds, average="micro")
     return {
         "f1": f1,
         "recall": recall,

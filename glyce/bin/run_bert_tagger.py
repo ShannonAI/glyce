@@ -137,7 +137,7 @@ def load_data(config):
     test_examples = data_processor.get_test_examples(config.data_dir)
 
     # convert data example into featrues 
-    train_features = convert_examples_to_features(train_examples, label_list, config.max_seq_length, tokenizer)
+    train_features = convert_examples_to_features(train_examples, label_list, config.max_seq_length, tokenizer, task_sign=config.task_name)
     train_input_ids = torch.tensor([f.input_ids for f in train_features], dtype=torch.long)
     train_input_mask = torch.tensor([f.input_mask for f in train_features], dtype=torch.long)
     train_segment_ids = torch.tensor([f.segment_ids for f in train_features], dtype=torch.long)
@@ -146,7 +146,7 @@ def load_data(config):
     # train_sampler = DistributedSampler(train_data)
     train_sampler = RandomSampler(train_data)
 
-    dev_features = convert_examples_to_features(dev_examples, label_list, config.max_seq_length, tokenizer)
+    dev_features = convert_examples_to_features(dev_examples, label_list, config.max_seq_length, tokenizer, task_sign=config.task_name)
     dev_input_ids = torch.tensor([f.input_ids for f in dev_features], dtype=torch.long)
     dev_input_mask = torch.tensor([f.input_mask for f in dev_features], dtype=torch.long)
     dev_segment_ids = torch.tensor([f.segment_ids for f in dev_features], dtype=torch.long)
@@ -155,7 +155,7 @@ def load_data(config):
     # dev_sampler = DistributedSampler(dev_data)
     dev_sampler = RandomSampler(dev_data)
 
-    test_features = convert_examples_to_features(test_examples, label_list, config.max_seq_length, tokenizer)
+    test_features = convert_examples_to_features(test_examples, label_list, config.max_seq_length, tokenizer, task_sign=config.task_name)
     test_input_ids = torch.tensor([f.input_ids for f in test_features], dtype=torch.long)
     test_input_mask = torch.tensor([f.input_mask for f in test_features], dtype=torch.long)
     test_segment_ids = torch.tensor([f.segment_ids for f in test_features], dtype=torch.long)
