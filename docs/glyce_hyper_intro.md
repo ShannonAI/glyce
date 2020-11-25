@@ -24,7 +24,7 @@ font_channels | the number of fonts insert into the CNN channels. If random_font
 font_name | the font name of the form "CJK/NotoSansCJKscReguar.otf" is valid only when font_channels=1 | - | str 
 font_size | size of script image | 18 | int 
 num_fonts_concat | concatenate the feature vectors obtained by passing the N fonts corresponding to one word through | 4 | int 
-use_tranditional | whether to use traditional characters instead of simplified characters | False | bool 
+use_traditional | whether to use traditional characters instead of simplified characters | False | bool 
 subchar_type | whether to use pinyin("pinyin") or wubi ("wubi") | False | bool 
 random_erase | whether randomly block a small piece of the gray scale image of Chinese scripts | False | bool  
 glyph_cnn_type | the name of CNN model for extracting glyph information | yuxuanba | str 
