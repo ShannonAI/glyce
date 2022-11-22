@@ -1,6 +1,6 @@
 torch==1.0
 torchvision
-Pillow==7.0.0
+Pillow==9.3.0
 zhconv==1.4.0 
 pypinyin==0.34.1
 pywubi==0.0.2 
